@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scripts</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+      <div class="container">
+        <!-- logo -->
+        <a class="navbar-brand" href="../index.html">
+          <img src="../srcs/iconos/AILTON D. (300 x 67 px) (2).svg" alt="" />
+        </a>
+        <!-- desplegable -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../index.html"
+                >Principal</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-disabled="true">Scripts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-disabled="true">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Gato flotante -->
+    <div class="floating-gif">
+      <div class="text-bubble" id="textBubble">
+        <img
+          src=""
+          alt="Globo de pensamiento"
+          id="thoughtImage"
+          style="width: 100%"
+        />
+      </div>
+      <div class="gif-container">
+        <img
+          width="100px"
+          src="https://i.pinimg.com/originals/80/7b/5c/807b5c4b02e765bb4930b7c66662ef4b.gif"
+          alt="GIF animado"
+          class="img-fluid"
+          id="gifImage"
+        />
+      </div>
+    </div>
+    <!-- Principal -->
+    <main style="margin-top: 70px">
+      <!-- Titulo -->
+      <div class="container pt-3">
+        <p class="h1 text-white">
+          Ejercicios
+          <img class="pb-1" width="40px" src="../srcs/iconos/js.svg" alt="" />
+        </p>
+      </div>
+      <!-- Ejercicios -->
+      <section>
+        <div class="container pt-3 pb-5">
+          <div class="row g-3">
+            <!-- Ejericio 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://cdn.dribbble.com/users/521912/screenshots/14003796/pokedex-pixel-art-large.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 1: <strong class="text-info">Pokedex</strong>
+                  </h5>
+                  <p class="card-text">
+                    Usamos una Pokedex para mostrar y buscar Pokémon por su
+                    nombre o tipo.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://i.pinimg.com/originals/33/30/2e/33302e2d2fbc77d74e9c489eaa0a1552.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 2:
+                    <strong class="text-info">Historial de Búsqueda</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>Array.reverse()</code> para mostrar el
+                    historial de búsqueda en orden cronológico inverso.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://cdn.pixabay.com/animation/2022/08/02/14/40/14-40-53-72_512.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 3:
+                    <strong class="text-info">Buscar Producto</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>Array.find()</code> para encontrar un producto
+                    específico en un inventario por su nombre.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://i.makeagif.com/media/5-24-2016/u41MPv.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 4:
+                    <strong class="text-info">Formato Local de Fecha</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>Date.toLocaleString()</code> para convertir
+                    una fecha a una cadena con formato local.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://i.makeagif.com/media/1-01-2018/4UjYlY.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 5:
+                    <strong class="text-info">Generador de Spam</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>String.prototype.repeat()</code> para repetir
+                    spam y despues copiarlo.
+                  </p>
+                  <div>
+                    <a href="https://reptextos.ailtondamian.com/">
+                      <button type="button" class="btn btn-secondary">
+                        Codigo <i class="bi bi-code"></i>
+                      </button>
+                    </a>
+                    <a href="https://genspam.ailtondamian.com">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjF4amt6cG5rMHp2ZjlhbHo1a21nZXJlbWZqOW92djlyMnhhbzRuaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FoRLGUuJIwu5qbF5jY/giphy.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 6:
+                    <strong class="text-info">Dividir Cadena</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>String.prototype.split()</code> para dividir
+                    una cadena en un array .
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 7 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://j.gifs.com/KR3oVp.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 7:
+                    <strong class="text-info">Área de un Círculo</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>Math.PI</code> para calcular el área de un
+                    círculo usando el valor de Pi.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 8 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://images.squarespace-cdn.com/content/v1/5a0dd6831f318dcf5130a0d5/1517448306796-XTP4DDDCF16HNHV1UCAJ/F32.Piolin.jpg?format=1500w"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 8:
+                    <strong class="text-info">Mensaje de Bienvenida</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>document.write()</code> para mostrar un
+                    mensaje de bienvenida en una página web.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 9 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://preview.redd.it/895opeuk0yj61.jpg?width=640&crop=smart&auto=webp&s=e0c97c124fc49dd80f25b14c66ff317412b5af88"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 9:
+                    <strong class="text-info">Combinar Listas</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code>Array.concat()</code> para combinar listas de
+                    productos de diferentes categorías en una sola lista.
+                  </p>
+                  <div>
+                    <button type="button" class="btn btn-secondary">
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <button type="button" class="btn btn-dark">
+                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-3 pb-3">
+      <div class="container text-center text-md-left">
+        <div class="row">
+          <div class="col-12">
+            <img src="../srcs/iconos/AILTON D. (300 x 67 px) (2).svg" alt="" />
+          </div>
+          <div class="col-12">
+            <p class="mb-0">
+              © 2024 AiltonDamian. Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Sonidito para el gato flotante -->
+    <audio id="clickSound" src="../srcs/sounds/vine-boom (1).mp3"></audio>
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../scripts/gato.js"></script>
+  </body>
+</html>

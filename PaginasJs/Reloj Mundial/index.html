@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Mundial</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .clock {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Horario Mundial</h1>
+        <div id="clocks" class="text-center">
+            <!-- Aquí se mostrarán los relojes -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cities = {
+    'Lima': 'America/Lima',
+    'Nueva York': 'America/New_York',
+    'Londres': 'Europe/London',
+    'Tokio': 'Asia/Tokyo',
+    'Sídney': 'Australia/Sydney',
+    'Madrid': 'Europe/Madrid',
+    'Las Palmas': 'Atlantic/Canary'
+};
+
+
+            function updateClocks() {
+                const now = new Date();
+                const clocksContainer = document.getElementById('clocks');
+                clocksContainer.innerHTML = ''; // Limpia el contenido anterior
+
+                for (const [city, timezone] of Object.entries(cities)) {
+                    const time = new Intl.DateTimeFormat('es-ES', {
+                        timeZone: timezone,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                    }).format(now);
+
+                    const cityElement = document.createElement('div');
+                    cityElement.classList.add('clock');
+                    cityElement.textContent = `${city}: ${time}`;
+                    clocksContainer.appendChild(cityElement);
+                }
+            }
+
+            // Actualiza la hora cada segundo
+            setInterval(updateClocks, 1000);
+
+            // Actualiza la hora inmediatamente al cargar la página
+            updateClocks();
+        });
+    </script>
+</body>
+</html>

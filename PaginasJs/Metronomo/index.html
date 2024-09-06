@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrónomo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .metronome-controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mt-5">
+            <h1>Metrónomo</h1>
+            <div class="metronome-controls">
+                <p id="tempoDisplay" class="lead">Tempo: 120 BPM</p>
+                <input type="range" id="tempoRange" class="form-range" min="40" max="208" value="120">
+                <button id="toggleButton" class="btn btn-primary mt-3">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio file -->
+    <audio id="clickSound" src="../../srcs/sounds/metronome-85688.mp3"></audio>
+
+    <script>
+        const tempoRange = document.getElementById('tempoRange');
+        const tempoDisplay = document.getElementById('tempoDisplay');
+        const toggleButton = document.getElementById('toggleButton');
+        const clickSound = document.getElementById('clickSound');
+        let interval;
+        let isPlaying = false;
+
+        function updateTempoDisplay() {
+            const tempo = tempoRange.value;
+            tempoDisplay.textContent = `Tempo: ${tempo} BPM`;
+        }
+
+        function startMetronome() {
+            if (isPlaying) return;
+            isPlaying = true;
+            interval = setInterval(() => {
+                clickSound.currentTime = 0; // Reinicia el sonido a 0 para cada reproducción
+                clickSound.play(); // Reproduce el sonido
+            }, 60000 / tempoRange.value); // Calcula el intervalo basado en el tempo
+            toggleButton.textContent = 'Stop';
+        }
+
+        function stopMetronome() {
+            if (!isPlaying) return;
+            clearInterval(interval);
+            isPlaying = false;
+            toggleButton.textContent = 'Start';
+        }
+
+        tempoRange.addEventListener('input', () => {
+            updateTempoDisplay();
+            if (isPlaying) {
+                stopMetronome();
+                startMetronome();
+            }
+        });
+
+        toggleButton.addEventListener('click', () => {
+            if (isPlaying) {
+                stopMetronome();
+            } else {
+                startMetronome();
+            }
+        });
+
+        // Inicializar la visualización del tempo
+        updateTempoDisplay();
+    </script>
+</body>
+</html>
