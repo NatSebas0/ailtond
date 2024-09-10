@@ -15,6 +15,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -58,31 +63,27 @@
     </nav>
     <!-- Gato flotante -->
     <div class="floating-gif">
-      <div class="text-bubble" id="textBubble">
-        <img
-          src=""
-          alt="Globo de pensamiento"
-          id="thoughtImage"
-          style="width: 100%"
-        />
+      <div class="burbuja-texto" id="burbujaTexto">
+        <img src="" alt="" id="imagenGlobo" style="width: 100%" />
       </div>
-      <div class="gif-container">
+      <div class="contenedor-gif">
         <img
           width="100px"
           src="https://i.pinimg.com/originals/80/7b/5c/807b5c4b02e765bb4930b7c66662ef4b.gif"
           alt="GIF animado"
           class="img-fluid"
-          id="gifImage"
+          id="gifAnimado"
         />
       </div>
     </div>
+
     <!-- Principal -->
     <main style="margin-top: 70px">
       <!-- Titulo -->
       <div class="container pt-3">
         <p class="h1 text-white">
           Ejercicios
-          <img class="pb-1" width="40px" src="../srcs/iconos/js.svg" alt="" />
+          <img class="pb-1" width="40px" src="../srcs/iconos/js.svg" alt="" /> -
         </p>
       </div>
       <!-- Ejercicios -->
@@ -94,23 +95,30 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://cdn.dribbble.com/users/521912/screenshots/14003796/pokedex-pixel-art-large.gif"
+                  src="https://i.pinimg.com/originals/80/7b/5c/807b5c4b02e765bb4930b7c66662ef4b.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
-                    Ejercicio 1: <strong class="text-info">Pokedex</strong>
+                    Ejercicio 1: <strong class="text-info">Cat</strong>
                   </h5>
                   <p class="card-text">
-                    Usamos una Pokedex para mostrar y buscar Pokémon por su
-                    nombre o tipo.
+                    Un amigable gato que cambia cuando le haces click , tiene 3
+                    mensajes y reproduce sonido.
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Cat/gato.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
+
+                    <button type="button" class="btn btn-dark disabled">
                       Abrir <i class="bi bi-arrow-up-right-circle"></i>
                     </button>
                   </div>
@@ -122,26 +130,34 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://i.pinimg.com/originals/33/30/2e/33302e2d2fbc77d74e9c489eaa0a1552.gif"
+                  src="https://cdn.dribbble.com/users/885937/screenshots/2939772/__-1_1.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 2:
-                    <strong class="text-info">Historial de Búsqueda</strong>
+                    <strong class="text-info">Descargar imagen editada</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>Array.reverse()</code> para mostrar el
-                    historial de búsqueda en orden cronológico inverso.
+                    Utiliza <code>html2canvas</code> para descargar una imagen
+                    previamente editada.
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Descar imagen modificada/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
-                    </button>
+                    <a href="../PaginasJs/Descar imagen modificada/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -151,26 +167,36 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://cdn.pixabay.com/animation/2022/08/02/14/40/14-40-53-72_512.gif"
+                  src="https://cdn.dribbble.com/users/303363/screenshots/2060437/final.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 3:
-                    <strong class="text-info">Buscar Producto</strong>
+                    <strong class="text-info">Drag and drop</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>Array.find()</code> para encontrar un producto
-                    específico en un inventario por su nombre.
+                    Ejercicio con la funcionalidad de un drag and drop para
+                    gestionar tareas.
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Drag and drop/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
-                    </button>
+                    <a
+                      href="../PaginasJs/UtpTasksProject/Paginas/Cursos -drag.html"
+                    >
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -180,26 +206,34 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://i.makeagif.com/media/5-24-2016/u41MPv.gif"
+                  src="https://cdn.dribbble.com/users/1787350/screenshots/14084465/spam.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 4:
-                    <strong class="text-info">Formato Local de Fecha</strong>
+                    <strong class="text-info">Generador Spam</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>Date.toLocaleString()</code> para convertir
-                    una fecha a una cadena con formato local.
+                    Utiliza <code>String.prototype.repeat()</code> para repetir
+                    spam y despues copiarlo.
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Generador de texto/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
-                    </button>
+                    <a href="../PaginasJs/Generador de texto/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -209,30 +243,33 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://i.makeagif.com/media/1-01-2018/4UjYlY.gif"
+                  src="https://cdn.dribbble.com/users/2344150/screenshots/7113956/metronome_dribbble.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 5:
-                    <strong class="text-info">Generador de Spam</strong>
+                    <strong class="text-info">Metronomo</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>String.prototype.repeat()</code> para repetir
-                    spam y despues copiarlo.
+                    Metrónomo musical utilizando JavaScript con un control
+                    deslizantes para controlar el BPM.
                   </p>
                   <div>
-                    <a href="https://reptextos.ailtondamian.com/">
-                      <button type="button" class="btn btn-secondary">
-                        Codigo <i class="bi bi-code"></i>
-                      </button>
-                    </a>
-                    <a href="https://genspam.ailtondamian.com">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Metronomo/script.js"
+                    >
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <a href="../PaginasJs/Metronomo/index.html">
                       <button type="button" class="btn btn-dark">
                         Abrir <i class="bi bi-arrow-up-right-circle"></i>
                       </button>
-
                     </a>
                   </div>
                 </div>
@@ -243,26 +280,34 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjF4amt6cG5rMHp2ZjlhbHo1a21nZXJlbWZqOW92djlyMnhhbzRuaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FoRLGUuJIwu5qbF5jY/giphy.gif"
+                  src="https://i.pinimg.com/originals/0c/bf/be/0cbfbe6caf716ba532b6fbbab82ff5a4.gif "
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 6:
-                    <strong class="text-info">Dividir Cadena</strong>
+                    <strong class="text-info">Juego de velocidad</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>String.prototype.split()</code> para dividir
-                    una cadena en un array .
+                    Reto de reacción , debes hacer clic en un botón tan rápido
+                    como pueda después de que cambie de color.
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Juego de velocidad/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
-                    </button>
+                    <a href="../PaginasJs/Juego de velocidad/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -272,26 +317,34 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://j.gifs.com/KR3oVp.gif"
+                  src="https://i.pinimg.com/originals/3f/82/40/3f8240fa1d16d0de6d4e7510b43b37ba.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 7:
-                    <strong class="text-info">Área de un Círculo</strong>
+                    <strong class="text-info">Reloj Mundial</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>Math.PI</code> para calcular el área de un
-                    círculo usando el valor de Pi.
+                    Utiliza <code>Intl.DateTimeFormat</code> para mostrar
+                    distintos horario a nivel mundial .
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Reloj Mundial/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
-                    </button>
+                    <a href="../PaginasJs/Reloj Mundial/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -301,26 +354,34 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://images.squarespace-cdn.com/content/v1/5a0dd6831f318dcf5130a0d5/1517448306796-XTP4DDDCF16HNHV1UCAJ/F32.Piolin.jpg?format=1500w"
+                  src="https://media.tenor.com/9NMB7giFjAMAAAAM/uno-reverse-card.gif"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 8:
-                    <strong class="text-info">Mensaje de Bienvenida</strong>
+                    <strong class="text-info">Rotar lista</strong>
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>document.write()</code> para mostrar un
-                    mensaje de bienvenida en una página web.
+                    Utiliza <code>reverse()</code> para rotar un array
+                    previamente con datos.
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Rotar lista/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
-                    </button>
+                    <a href="../PaginasJs/Rotar lista/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -330,26 +391,149 @@
               <div class="card">
                 <img
                   class="card-img-top"
-                  src="https://preview.redd.it/895opeuk0yj61.jpg?width=640&crop=smart&auto=webp&s=e0c97c124fc49dd80f25b14c66ff317412b5af88"
+                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnY0dXMyZ3ZyYzNpdWhoaXJ0ODQxOXZ4dGpxZzVkbzQyNTZtandhdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FoRLGUuJIwu5qbF5jY/giphy.webp"
                   alt=""
                 />
 
                 <div class="card-body">
                   <h5 class="card-title">
                     Ejercicio 9:
-                    <strong class="text-info">Combinar Listas</strong>
+                    <strong class="text-info"
+                      >Separar una cadena de texto</strong
+                    >
                   </h5>
                   <p class="card-text">
-                    Utiliza <code>Array.concat()</code> para combinar listas de
-                    productos de diferentes categorías en una sola lista.
+                    Separa una cadena de texto, y las divide palabra por palabra
+                    ( se puede copiar ).
                   </p>
                   <div>
-                    <button type="button" class="btn btn-secondary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Split/script.js"
+                    >
                       Codigo <i class="bi bi-code"></i>
                     </button>
-                    <button type="button" class="btn btn-dark">
-                      Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                    <a href="../PaginasJs/Split/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 10 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://cdn.dribbble.com/users/303272/screenshots/1073851/tutorial.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 10:
+                    <strong class="text-info">Tutorial</strong>
+                  </h5>
+                  <p class="card-text">
+                    Utiliza <code> introJs().setOptions</code> Para crear un
+                    tutorial introductorio para una paguina
+                  </p>
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Tutorial/script.js"
+                    >
+                      Codigo <i class="bi bi-code"></i>
                     </button>
+                    <a
+                      href="../PaginasJs/UtpTasksProject/Paginas/PrincipalCursos.html"
+                    >
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 11 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://media.tenor.com/Wrja3A0h8yUAAAAM/fortntite-pokemon.gif"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 11:
+                    <strong class="text-info">Pokedex</strong>
+                  </h5>
+                  <p class="card-text">
+                    Pokedex utilizando POKE api para mostrar todos los pokemones
+                    de las distintas generaciones
+                  </p>
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Pokedex2.0/script.js"
+                    >
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <a href="../PaginasJs/Pokedex2.0/index.html">
+                      <button type="button" class="btn btn-dark">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Ejercicio 12 -->
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <img
+                  class="card-img-top"
+                  src="https://camo.envatousercontent.com/14cbb156b1d93bf5c7d1beaf765a762a66c6ad9d/68747470733a2f2f6d65646961312e74656e6f722e636f6d2f696d616765732f32353733343265653339653161653462346635646132666433306563633037352f74656e6f722e6769663f6974656d69643d3134373135373331"
+                  alt=""
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ejercicio 12:
+                    <strong class="text-info">Modal dinamico Codigo</strong>
+                  </h5>
+                  <p class="card-text">
+                    Permite Mostrar los codigos de Js sin la necesidad de crear
+                    otros modales
+                  </p>
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#codeModal"
+                      data-file="../PaginasJs/Modal Dinamico/script.js"
+                    >
+                      Codigo <i class="bi bi-code"></i>
+                    </button>
+                    <a href="../PaginasJs/Split/index.html">
+                      <button type="button" class="btn btn-dark disabled">
+                        Abrir <i class="bi bi-arrow-up-right-circle"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -373,8 +557,44 @@
         </div>
       </div>
     </footer>
+
+    <!-- Modal Único -->
+    <div
+      class="modal fade code-modal"
+      id="codeModal"
+      tabindex="-1"
+      aria-labelledby="codeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="codeModalLabel">Código JavaScript</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <pre><code id="codeDisplay" class="language-javascript"></code></pre>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Sonidito para el gato flotante -->
-    <audio id="clickSound" src="../srcs/sounds/vine-boom (1).mp3"></audio>
+    <audio id="sonidoClick" src="../srcs/sounds/vine-boom (1).mp3"></audio>
     <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -382,5 +602,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="../scripts/gato.js"></script>
+    <script src="../PaginasJs/Modal Dinamico/script.js"></script>
   </body>
 </html>

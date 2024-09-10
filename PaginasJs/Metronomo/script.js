@@ -1,36 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tempoInput = document.getElementById('tempo');
-    const startStopButton = document.getElementById('start-stop');
-    const clickSound = document.getElementById('click-sound');
+    const inputTempo = document.getElementById('tempo');
+    const botonIniciarDetener = document.getElementById('start-stop');
+    const sonidoClic = document.getElementById('click-sound');
 
-    let intervalId;
-    let isPlaying = false;
+    let idIntervalo;
+    let estaReproduciendo = false;
 
-    function playClick() {
-        clickSound.currentTime = 0;
-        clickSound.play();
+    function reproducirClic() {
+        sonidoClic.currentTime = 0;
+        sonidoClic.play();
     }
 
-    function startMetronome() {
-        const tempo = parseInt(tempoInput.value);
-        const interval = 60000 / tempo; // Intervalo en milisegundos
+    function iniciarMetrónomo() {
+        const tempo = parseInt(inputTempo.value);
+        const intervalo = 60000 / tempo; // Intervalo en milisegundos
 
-        intervalId = setInterval(playClick, interval);
-        startStopButton.textContent = 'Detener';
-        isPlaying = true;
+        idIntervalo = setInterval(reproducirClic, intervalo);
+        botonIniciarDetener.textContent = 'Detener';
+        estaReproduciendo = true;
     }
 
-    function stopMetronome() {
-        clearInterval(intervalId);
-        startStopButton.textContent = 'Iniciar';
-        isPlaying = false;
+    function detenerMetrónomo() {
+        clearInterval(idIntervalo);
+        botonIniciarDetener.textContent = 'Iniciar';
+        estaReproduciendo = false;
     }
 
-    startStopButton.addEventListener('click', () => {
-        if (isPlaying) {
-            stopMetronome();
+    botonIniciarDetener.addEventListener('click', () => {
+        if (estaReproduciendo) {
+            detenerMetrónomo();
         } else {
-            startMetronome();
+            iniciarMetrónomo();
         }
     });
 });

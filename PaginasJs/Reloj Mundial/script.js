@@ -1,45 +1,43 @@
-document.getElementById('repeatButton').addEventListener('click', function() {
-    // Obtener el texto y la cantidad de repeticiones
-    const text = document.getElementById('text').value;
-    const repeatCount = parseInt(document.getElementById('repeatCount').value);
+document.addEventListener('DOMContentLoaded', () => {
+    const cities = {
+        'Lima': 'America/Lima',
+        'Nueva York': 'America/New_York',
+        'Londres': 'Europe/London',
+        'Tokio': 'Asia/Tokyo',
+        'Sídney': 'Australia/Sydney',
+        'Madrid': 'Europe/Madrid',
+        'Las Palmas': 'Atlantic/Canary'
+    };
 
-    // Obtener el formato seleccionado
-    const format = document.querySelector('input[name="format"]:checked').value;
+    function updateClocks() {
+        const now = new Date();
+        const clocksContainer = document.getElementById('clocks');
+        clocksContainer.innerHTML = ''; // Limpia el contenido anterior
 
-    // Validar que la cantidad sea un número positivo
-    if (isNaN(repeatCount) || repeatCount < 0) {
-        alert('Por favor, ingresa una cantidad válida.');
-        return;
+        for (const [city, timezone] of Object.entries(cities)) {
+            const time = new Intl.DateTimeFormat('es-ES', {
+                timeZone: timezone,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            }).format(now);
+
+            const cityElement = document.createElement('div');
+            cityElement.classList.add('col');
+            cityElement.innerHTML = `
+                <div class="clock">
+                    <div class="city-name">${city}</div>
+                    <div>${time}</div>
+                </div>
+            `;
+            clocksContainer.appendChild(cityElement);
+        }
     }
-    let rst= text + " ";
 
-    let result;
-    if (format === 'multiLine') {
-        // Repetir la cadena con un salto de línea entre cada repetición
-        result = Array(repeatCount).fill(rst).join('<br>');
-    } else {
-        // Repetir la cadena en una sola línea
-        result = rst.repeat(repeatCount);
-    }
+    // Actualiza la hora cada segundo
+    setInterval(updateClocks, 1000);
 
-    // Mostrar el resultado en el elemento <div> con ID result
-    document.getElementById('result').innerHTML = result;
-});
-
-
-document.getElementById('copyButton').addEventListener('click', function() {
-    // Crear un elemento temporal para copiar el contenido
-    const tempElement = document.createElement('textarea');
-    tempElement.value = document.getElementById('result').innerText;
-    document.body.appendChild(tempElement);
-
-    // Seleccionar y copiar el contenido
-    tempElement.select();
-    document.execCommand('copy');
-
-    // Eliminar el elemento temporal
-    document.body.removeChild(tempElement);
-
-    // Mostrar un mensaje de confirmación
-    alert('Texto copiado al portapapeles.');
+    // Actualiza la hora inmediatamente al cargar la página
+    updateClocks();
 });

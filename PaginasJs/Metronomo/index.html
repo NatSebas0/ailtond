@@ -1,79 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metrónomo</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .metronome-controls {
-            margin-top: 20px;
+        body {
+            background-color: #14a3e6;
+        }
+        .container {
+            max-width: 500px;
+            margin-top: 50px;
+        }
+        .controles-metrónomo {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            width: 100%;
+            font-size: 1.2rem;
+        }
+        .form-range {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .15s ease-in-out;
+        }
+        .form-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #007bff;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .form-range::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #007bff;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .lead {
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mt-5">
-            <h1>Metrónomo</h1>
-            <div class="metronome-controls">
-                <p id="tempoDisplay" class="lead">Tempo: 120 BPM</p>
-                <input type="range" id="tempoRange" class="form-range" min="40" max="208" value="120">
-                <button id="toggleButton" class="btn btn-primary mt-3">Start</button>
-            </div>
+        <div class="text-center controles-metrónomo">
+            <h1 class="mb-4">Metrónomo</h1>
+            <p id="displayTempo" class="lead">Tempo: 120 BPM</p>
+            <input type="range" id="rangoTempo" class="form-range" min="40" max="208" value="120">
+            <button id="botónAlternar" class="btn btn-primary mt-3">Start</button>
         </div>
     </div>
 
-    <!-- Audio file -->
-    <audio id="clickSound" src="../../srcs/sounds/metronome-85688.mp3"></audio>
+    <!-- Archivo de audio -->
+    <audio id="sonidoClick" src="../../srcs/sounds/metronome-85688.mp3"></audio>
 
     <script>
-        const tempoRange = document.getElementById('tempoRange');
-        const tempoDisplay = document.getElementById('tempoDisplay');
-        const toggleButton = document.getElementById('toggleButton');
-        const clickSound = document.getElementById('clickSound');
-        let interval;
-        let isPlaying = false;
+        const rangoTempo = document.getElementById('rangoTempo');
+        const displayTempo = document.getElementById('displayTempo');
+        const botónAlternar = document.getElementById('botónAlternar');
+        const sonidoClick = document.getElementById('sonidoClick');
+        let intervalo;
+        let estáReproduciendo = false;
 
-        function updateTempoDisplay() {
-            const tempo = tempoRange.value;
-            tempoDisplay.textContent = `Tempo: ${tempo} BPM`;
+        // Actualiza la visualización del tempo en el elemento correspondiente
+        function actualizarVisualizaciónTempo() {
+            const tempo = rangoTempo.value;
+            displayTempo.textContent = `Tempo: ${tempo} BPM`;
         }
 
-        function startMetronome() {
-            if (isPlaying) return;
-            isPlaying = true;
-            interval = setInterval(() => {
-                clickSound.currentTime = 0; // Reinicia el sonido a 0 para cada reproducción
-                clickSound.play(); // Reproduce el sonido
-            }, 60000 / tempoRange.value); // Calcula el intervalo basado en el tempo
-            toggleButton.textContent = 'Stop';
+        // Inicia el metrónomo si no está en reproducción
+        function iniciarMetrónomo() {
+            if (estáReproduciendo) return;
+            estáReproduciendo = true;
+            intervalo = setInterval(() => {
+                sonidoClick.currentTime = 0; // Reinicia el sonido a 0 para cada reproducción
+                sonidoClick.play(); // Reproduce el sonido
+            }, 60000 / rangoTempo.value); // Calcula el intervalo basado en el tempo
+            botónAlternar.textContent = 'Stop';
         }
 
-        function stopMetronome() {
-            if (!isPlaying) return;
-            clearInterval(interval);
-            isPlaying = false;
-            toggleButton.textContent = 'Start';
+        // Detiene el metrónomo si está en reproducción
+        function detenerMetrónomo() {
+            if (!estáReproduciendo) return;
+            clearInterval(intervalo);
+            estáReproduciendo = false;
+            botónAlternar.textContent = 'Start';
         }
 
-        tempoRange.addEventListener('input', () => {
-            updateTempoDisplay();
-            if (isPlaying) {
-                stopMetronome();
-                startMetronome();
+        // Event listener para actualizar el tempo y reiniciar el metrónomo si está en reproducción
+        rangoTempo.addEventListener('input', () => {
+            actualizarVisualizaciónTempo();
+            if (estáReproduciendo) {
+                detenerMetrónomo();
+                iniciarMetrónomo();
             }
         });
 
-        toggleButton.addEventListener('click', () => {
-            if (isPlaying) {
-                stopMetronome();
+        // Event listener para alternar entre iniciar y detener el metrónomo
+        botónAlternar.addEventListener('click', () => {
+            if (estáReproduciendo) {
+                detenerMetrónomo();
             } else {
-                startMetronome();
+                iniciarMetrónomo();
             }
         });
 
         // Inicializar la visualización del tempo
-        updateTempoDisplay();
+        actualizarVisualizaciónTempo();
     </script>
 </body>
 </html>

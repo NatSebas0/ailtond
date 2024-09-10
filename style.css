@@ -94,20 +94,57 @@ text-align: justify;}
     z-index: 1000;
   }
 
-  .text-bubble {
+  .burbuja-texto {
     position: absolute;
     bottom: 80px; /* Ajusta la distancia desde el fondo del contenedor */
     left: -20px; /* Ajusta la distancia desde el lado izquierdo del contenedor */
     width: 150px;
     display: none;
   }
-  .gif-container img {
+  .contenedor-gif img {
     
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
   }
 
-  .gif-container img:hover {
+  .contenedor-gif img:hover {
     transform: scale(1.2);
   }
+
+
+  .code-modal .modal-dialog {
+    max-width: 90%; /* Ajusta el ancho máximo del modal */
+}
+.code-modal .modal-content {
+    border-radius: 10px;
+    background-color: #212529; /* Fondo negro para el modal */
+    color: #ffffff; /* Texto blanco */
+}
+.code-modal .modal-header {
+    border-bottom: none;
+}
+.code-modal .modal-body {
+    padding: 20px;
+    max-height: 80vh; /* Ajusta la altura máxima del modal */
+    overflow-y: auto; /* Añade scroll si el contenido es demasiado alto */
+}
+.code-modal .modal-footer {
+    border-top: none;
+}
+pre {
+    background-color: #2d2d2d; /* Fondo oscuro para el código */
+    color: #f8f8f2; /* Color claro para el texto del código */
+    padding: 20px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap; /* Ajusta el texto del código para que se ajuste al ancho del contenedor */
+    font-size: 0.9rem; /* Ajusta el tamaño de la fuente del código si es necesario */
+}
+.modal-footer .btn-secondary {
+    background-color: #343a40; /* Fondo del botón de cerrar */
+    border: none;
+}
+.modal-footer .btn-secondary:hover {
+    background-color: #495057; /* Fondo del botón de cerrar en hover */
+}
 
